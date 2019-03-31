@@ -1,5 +1,6 @@
 package kr.hs.dgsw.coordinatorpr;
 
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     MemoListAdapter memoListAdapter;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
         memoListAdapter.addItemList(getMemoDummyList());
         memoListAdapter.addItemList(getMemoDummyList());
         memoListAdapter.addItemList(getMemoDummyList());
+
+        tabLayout = findViewById(R.id.tabLayout);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
+        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
+        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 
     private ArrayList<MemoItem> getMemoDummyList() {
